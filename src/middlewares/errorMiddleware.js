@@ -1,0 +1,6 @@
+module.exports = (err, req, res, next) => {
+  console.error('[ERROR]', err.message);
+  console.error(err.stack);
+  const status = err.status || 500;
+  res.status(status).json({ msg: err.message });
+};
